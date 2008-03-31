@@ -1,0 +1,101 @@
+#N canvas 0 15 610 695 10;
+#X obj 78 142 tabwrite~;
+#X obj 210 -10 inlet;
+#X obj 593 93 0;
+#X obj 624 94 + 1;
+#X obj 593 115 mod 5;
+#X obj 593 155 pack f s;
+#X obj 632 17 loadbang;
+#X obj 632 42 t b b;
+#X obj 668 102 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 592 175 sprintf %d-%s;
+#X obj 592 197 symbol;
+#X obj 210 21 route rec stop getpos;
+#X msg 179 83 stop;
+#X obj 681 56 \$2;
+#X obj 681 75 sel 0;
+#X text 10 372 messages: rec: reset to array 0 \, phase 0 and start
+recording. stop: stop recording. getpos: get current recording position
+as buffernumber \, phase through outlet.;
+#X msg 165 189 set \$1 \, bang;
+#X msg 583 65 0;
+#X obj 256 303 outlet;
+#X obj 645 130 symbol \$1;
+#X obj 77 14 inlet~ audio;
+#X obj 105 288 tabwrite~;
+#X obj 173 144 alternera;
+#X msg 112 165 set \$1 \, bang;
+#X obj 289 193 t3_timer;
+#X obj 256 252 pack f f f;
+#X obj 371 68 t b b b;
+#X obj 281 93 0;
+#X obj 371 143 t3_metro;
+#X msg 369 107 start 0;
+#X obj 410 108 samp2ms \$3;
+#X obj 166 53 t b b b b;
+#X obj 371 166 t f b;
+#X obj 281 116 t f f;
+#X text 365 521 Creation arguments: multibuf name \, number of arrays
+\, size of each array (samples). That is \, total size equals \$2 *
+\$3 samples.;
+#X text 363 457 Multibuf lets you merge several arrays to one large
+"virtual" array \, to avoid rounding errors (distortion) when playing
+back large arrays. The other solution would be tabread~~ \, but i don't
+know much about it. This abstraction is the recording part of things.
+;
+#X text 415 638 Johannes Burström 2007-2008.;
+#X obj 471 267 outlet;
+#X obj 471 240 pack f f;
+#X obj 289 217 - 2;
+#X text 311 216 a small delay \, so there'll be no interpolation errors
+;
+#X connect 1 0 11 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 4 0 5 0;
+#X connect 4 0 25 2;
+#X connect 4 0 38 1;
+#X connect 5 0 9 0;
+#X connect 6 0 7 0;
+#X connect 7 1 13 0;
+#X connect 7 1 19 0;
+#X connect 8 0 19 0;
+#X connect 9 0 10 0;
+#X connect 10 0 22 0;
+#X connect 11 0 31 0;
+#X connect 11 1 12 0;
+#X connect 11 2 27 0;
+#X connect 12 0 0 0;
+#X connect 12 0 21 0;
+#X connect 12 0 28 0;
+#X connect 13 0 14 0;
+#X connect 14 1 4 1;
+#X connect 16 0 21 0;
+#X connect 17 0 2 0;
+#X connect 19 0 5 1;
+#X connect 20 0 0 0;
+#X connect 20 0 21 0;
+#X connect 22 0 16 0;
+#X connect 22 1 23 0;
+#X connect 23 0 0 0;
+#X connect 24 0 39 0;
+#X connect 25 0 18 0;
+#X connect 26 0 29 0;
+#X connect 26 1 17 0;
+#X connect 26 2 30 0;
+#X connect 27 0 33 0;
+#X connect 28 0 32 0;
+#X connect 29 0 28 0;
+#X connect 30 0 28 1;
+#X connect 31 0 0 0;
+#X connect 31 1 26 0;
+#X connect 31 3 22 1;
+#X connect 32 0 24 0;
+#X connect 32 0 38 0;
+#X connect 32 1 2 0;
+#X connect 33 0 25 0;
+#X connect 33 1 24 1;
+#X connect 38 0 37 0;
+#X connect 39 0 25 1;
