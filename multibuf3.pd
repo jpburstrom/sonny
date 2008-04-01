@@ -1,5 +1,5 @@
-#N canvas 0 15 610 716 10;
-#N canvas 0 15 610 716 no1------------ 0;
+#N canvas 0 15 618 724 10;
+#N canvas 0 15 614 720 no1------------ 0;
 #X msg 164 200 stop;
 #X msg 341 235 rec;
 #X msg 377 234 stop;
@@ -123,8 +123,8 @@
 0 1;
 #X obj 111 162 hsl 180 20 -2 0.999 0 0 empty empty pitch 2 10 0 10
 -204786 -1 -1 15519 1;
-#X obj 108 183 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0
-12 -204786 -258113 -1 0.594604 256;
+#X obj 108 183 nbx 10 14 -1e+037 1e+037 0 0 empty empty empty 0 -6
+0 12 -204786 -258113 -1 0.594604 256;
 #X obj 254 185 tgl 10 0 empty empty snap 12 4 0 10 -262144 -1 -1 1
 1;
 #N canvas 0 15 610 695 snap 0;
@@ -210,11 +210,11 @@ octaves are pow(2 \, x);
 #X connect 8 0 0 1;
 #X connect 9 0 0 0;
 #X connect 10 0 11 0;
-#X connect 10 0 24 0;
 #X connect 11 0 9 0;
 #X connect 11 1 4 0;
 #X connect 11 2 5 0;
 #X connect 11 3 7 0;
+#X connect 11 4 24 0;
 #X connect 12 0 13 0;
 #X connect 13 0 24 0;
 #X connect 15 0 0 4;

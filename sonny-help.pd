@@ -1,0 +1,39 @@
+#N canvas 0 15 795 724 10;
+#X obj 178 186 multibuf3 /test 15 88192;
+#X obj 125 390 dac~;
+#X obj 117 135 adc~;
+#X obj 372 160 trighelper 3 1 0;
+#X obj 340 97 mousetrap;
+#X obj 340 70 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+-1;
+#X obj 340 119 route 1;
+#X msg 339 139 play \$1;
+#X text 393 182 Multibuf is an array of arrays \, which is constantly
+recorded to (in a loop). Playback is always from the current position
+in the loop \, and with a pitch somewhere below 1 (original). \; The
+idea is that while time never slows down in the real world \, it might
+be (for a certain period of time) in the digital world. \; To make
+it happen \, you create a multibuf3 object \, with an (1) osc address
+\, (2) number of arrays and (3) array size (preferrably multiple of
+64). \; Then \, you hook it up with the trighelper (for trigging with
+contact mikes or similar through adc~) or mousetrap (a window receiving
+mouse clicks) or any other input method of choice (midi \, OSC \, sensors).
+\; Usage: \; 1) Press Rec \, adjust pitch (snap is for chromatic snapping)
+\, choose if playback start is snapped to onsets \, choose sensitivity
+of onset detection (bang flashes for every onset) \; 2) Play your instrument
+and press the pedal/mousebtn/sensor thing whenever you want to play
+back your audio \; 3) Enjoy instant counterpoint.;
+#X text 237 655 Johannes Burström 2007/2008;
+#X text 149 484 dependencies: multibuf3: iem_t3_lib \, zexy \, cyclone
+(for sprintf) and probably others mousetrap needs toxy \; trighelper
+is pure vanilla.;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 0;
+#X connect 2 1 1 1;
+#X connect 2 1 1 0;
+#X connect 3 0 0 1;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 0 1;
