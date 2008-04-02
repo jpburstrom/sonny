@@ -1,12 +1,12 @@
-#N canvas 112 4 799 728 10;
+#N canvas 0 15 610 695 10;
 #X obj 125 390 dac~;
 #X obj 117 135 adc~;
-#X obj 372 160 trighelper 3 1 0;
-#X obj 340 97 mousetrap;
-#X obj 340 70 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
+#X obj 285 143 trighelper 3 1 0;
+#X obj 253 80 mousetrap;
+#X obj 253 53 bng 15 250 50 0 empty empty empty 0 -6 0 10 -262144 -1
 -1;
-#X obj 340 119 route 1;
-#X msg 339 139 play \$1;
+#X obj 253 102 route 1;
+#X msg 252 122 play \$1;
 #X text 393 182 Multibuf is an array of arrays \, which is constantly
 recorded to (in a loop). Playback is always from the current position
 in the loop \, and with a pitch somewhere below 1 (original). \; The
@@ -27,11 +27,17 @@ back your audio \; 3) Enjoy instant counterpoint.;
 (for sprintf) and probably others mousetrap needs toxy \; trighelper
 is pure vanilla.;
 #X obj 178 186 multibuf3 /test 10 480000;
+#X obj 397 84 keyhelper 119 115;
+#X obj 371 27 print;
 #X connect 1 0 10 0;
 #X connect 2 0 10 1;
 #X connect 3 0 5 0;
+#X connect 3 1 11 0;
+#X connect 3 1 12 0;
 #X connect 4 0 3 0;
 #X connect 5 0 6 0;
 #X connect 6 0 10 1;
 #X connect 10 0 0 0;
 #X connect 10 0 0 1;
+#X connect 10 1 11 1;
+#X connect 11 0 10 2;

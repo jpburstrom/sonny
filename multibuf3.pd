@@ -1,5 +1,5 @@
-#N canvas 125 2 642 734 10;
-#N canvas 103 20 638 734 no1------------ 0;
+#N canvas 0 15 610 716 10;
+#N canvas 0 15 610 716 no1------------ 0;
 #X msg 164 200 stop;
 #X msg 341 235 rec;
 #X msg 377 234 stop;
@@ -30,7 +30,6 @@
 #X obj 280 182 spigot;
 #X obj 261 97 t f f b;
 #X msg 300 240 0;
-#X obj 235 388 - 50;
 #X text 273 387 a bit before...;
 #X obj 557 115 inlet sens;
 #X obj 293 306 samp2ms \$3;
@@ -43,8 +42,10 @@
 #X obj 558 159 + 90;
 #X msg 399 113 thresh 11 \$1;
 #X obj 171 136 either;
-#X connect 0 0 29 0;
-#X connect 1 0 22 0;
+#X obj 365 63 z~ 4096;
+#X obj 235 388 - 88;
+#X connect 0 0 28 0;
+#X connect 1 0 29 0;
 #X connect 2 0 7 1;
 #X connect 3 0 15 0;
 #X connect 5 0 12 0;
@@ -57,29 +58,30 @@
 #X connect 9 0 12 2;
 #X connect 10 0 11 0;
 #X connect 10 1 8 0;
-#X connect 10 2 20 0;
-#X connect 11 0 17 0;
+#X connect 10 2 19 0;
+#X connect 11 0 30 0;
 #X connect 12 0 4 0;
 #X connect 13 0 5 0;
 #X connect 14 0 2 1;
-#X connect 15 0 29 1;
+#X connect 15 0 28 1;
 #X connect 15 1 14 1;
 #X connect 15 2 16 0;
 #X connect 16 0 7 1;
-#X connect 17 0 12 1;
-#X connect 19 0 26 0;
-#X connect 20 0 8 1;
-#X connect 20 0 11 1;
-#X connect 22 1 23 0;
-#X connect 23 0 2 0;
-#X connect 23 0 21 0;
-#X connect 24 0 28 0;
+#X connect 18 0 25 0;
+#X connect 19 0 8 1;
+#X connect 19 0 11 1;
+#X connect 21 1 22 0;
+#X connect 22 0 2 0;
+#X connect 22 0 20 0;
+#X connect 23 0 27 0;
+#X connect 25 0 26 0;
 #X connect 26 0 27 0;
-#X connect 27 0 28 0;
-#X connect 27 0 25 0;
-#X connect 28 0 22 0;
-#X connect 29 0 4 0;
-#X connect 29 1 5 0;
+#X connect 26 0 24 0;
+#X connect 27 0 21 0;
+#X connect 28 0 4 0;
+#X connect 28 1 5 0;
+#X connect 29 0 21 0;
+#X connect 30 0 12 1;
 #X restore 308 302 pd onset_thing;
 #X obj 308 265 multibuf_rec3 \$0-t \$2 \$3;
 #X obj 198 209 0.9;
@@ -120,11 +122,11 @@
 #X obj 223 369 inlet~;
 #X obj 129 477 outlet~;
 #X obj 269 209 tgl 30 0 empty empty rec 0 7 0 10 -258699 -262144 -262144
-1 1;
+0 1;
 #X obj 111 162 hsl 180 20 -2 0.999 0 0 empty empty pitch 2 10 0 10
--204786 -1 -1 15419 1;
-#X obj 108 183 nbx 10 14 -1e+037 1e+037 0 0 empty empty empty 0 -6
-0 12 -204786 -258113 -1 0.594604 256;
+-204786 -1 -1 15519 1;
+#X obj 108 183 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -6 0
+12 -204786 -258113 -1 0.594604 256;
 #X obj 254 185 tgl 10 0 empty empty snap 12 4 0 10 -262144 -1 -1 1
 1;
 #N canvas 0 15 610 695 snap 0;
@@ -194,17 +196,20 @@ octaves are pow(2 \, x);
 #X obj 225 207 bng 15 250 50 0 empty empty empty 0 -6 0 10 -191407
 -1 -1;
 #X obj 163 142 hsl 128 15 4 2000 0 0 empty empty fade 2 7 0 10 -204800
--1 -1 5000 1;
+-1 -1 0 1;
 #X obj 396 271 0.6;
 #X obj 335 305 0.3;
 #X msg 415 487 vol \$1;
 #X obj 267 57 OSCroute /play /rec /pitch /snap /vol /fade;
+#X obj 540 132 inlet pitch;
+#X obj 540 157 outlet pitch;
 #X connect 0 0 3 0;
 #X connect 0 1 19 0;
 #X connect 2 0 0 6;
 #X connect 4 0 0 2;
 #X connect 5 0 6 0;
 #X connect 5 0 8 0;
+#X connect 5 0 26 0;
 #X connect 7 0 8 1;
 #X connect 8 0 6 0;
 #X connect 8 0 0 1;
@@ -235,4 +240,5 @@ octaves are pow(2 \, x);
 #X connect 24 3 7 0;
 #X connect 24 4 23 0;
 #X connect 24 5 20 0;
+#X connect 25 0 5 0;
 #X coords 0 -1 1 1 202 142 1 100 100;
