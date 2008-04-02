@@ -1,4 +1,4 @@
-#N canvas 0 15 610 716 10;
+#N canvas 0 15 618 724 10;
 #X obj 152 238 timer;
 #X obj 153 283 sel 1;
 #X obj 152 260 > 50;

@@ -1,5 +1,4 @@
-#N canvas 0 15 795 724 10;
-#X obj 178 186 multibuf3 /test 15 88192;
+#N canvas 112 4 799 728 10;
 #X obj 125 390 dac~;
 #X obj 117 135 adc~;
 #X obj 372 160 trighelper 3 1 0;
@@ -27,13 +26,12 @@ back your audio \; 3) Enjoy instant counterpoint.;
 #X text 149 484 dependencies: multibuf3: iem_t3_lib \, zexy \, cyclone
 (for sprintf) and probably others mousetrap needs toxy \; trighelper
 is pure vanilla.;
-#X connect 0 0 1 0;
-#X connect 0 0 1 1;
-#X connect 2 0 0 0;
-#X connect 2 1 1 1;
-#X connect 2 1 1 0;
-#X connect 3 0 0 1;
-#X connect 4 0 6 0;
-#X connect 5 0 4 0;
-#X connect 6 0 7 0;
-#X connect 7 0 0 1;
+#X obj 178 186 multibuf3 /test 10 480000;
+#X connect 1 0 10 0;
+#X connect 2 0 10 1;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 1;
+#X connect 10 0 0 0;
+#X connect 10 0 0 1;

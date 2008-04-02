@@ -1,5 +1,5 @@
-#N canvas 0 15 618 724 10;
-#N canvas 0 15 614 720 no1------------ 0;
+#N canvas 125 2 642 734 10;
+#N canvas 103 20 638 734 no1------------ 0;
 #X msg 164 200 stop;
 #X msg 341 235 rec;
 #X msg 377 234 stop;
@@ -82,47 +82,47 @@
 #X connect 29 1 5 0;
 #X restore 308 302 pd onset_thing;
 #X obj 308 265 multibuf_rec3 \$0-t \$2 \$3;
-#X obj 159 391 multibuf_play3 \$0-t \$2 \$3;
 #X obj 198 209 0.9;
 #X obj 452 138 inlet onset_sens;
 #X obj 415 114 inlet onset;
 #X obj 472 355 outlet;
 #X obj 234 193 route vol;
 #X msg 228 267 vol \$1;
-#X connect 0 0 14 0;
+#X obj 159 391 multibuf_play3 \$0-t \$2 \$3;
+#X connect 0 0 20 0;
 #X connect 1 0 13 1;
 #X connect 2 0 13 1;
 #X connect 4 0 8 0;
 #X connect 5 0 12 2;
 #X connect 5 0 13 0;
 #X connect 6 0 0 0;
-#X connect 6 1 15 0;
-#X connect 6 2 19 0;
+#X connect 6 1 14 0;
+#X connect 6 2 18 0;
 #X connect 7 0 6 0;
 #X connect 8 0 2 0;
 #X connect 8 1 1 0;
-#X connect 9 0 15 1;
-#X connect 10 0 14 0;
-#X connect 11 0 14 2;
-#X connect 12 0 14 1;
-#X connect 12 1 18 0;
+#X connect 9 0 14 1;
+#X connect 10 0 20 0;
+#X connect 11 0 20 2;
+#X connect 12 0 20 1;
+#X connect 12 1 17 0;
 #X connect 13 0 12 0;
-#X connect 14 0 13 1;
-#X connect 14 1 3 0;
-#X connect 15 0 10 0;
-#X connect 16 0 12 3;
-#X connect 17 0 12 1;
+#X connect 14 0 10 0;
+#X connect 15 0 12 3;
+#X connect 16 0 12 1;
+#X connect 18 0 19 0;
 #X connect 19 0 20 0;
-#X connect 20 0 14 0;
+#X connect 20 0 13 1;
+#X connect 20 1 3 0;
 #X restore 129 403 pd no1------------;
 #X obj 101 116 cnv 15 200 124 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 223 369 inlet~;
 #X obj 129 477 outlet~;
 #X obj 269 209 tgl 30 0 empty empty rec 0 7 0 10 -258699 -262144 -262144
-0 1;
+1 1;
 #X obj 111 162 hsl 180 20 -2 0.999 0 0 empty empty pitch 2 10 0 10
--204786 -1 -1 15519 1;
+-204786 -1 -1 15419 1;
 #X obj 108 183 nbx 10 14 -1e+037 1e+037 0 0 empty empty empty 0 -6
 0 12 -204786 -258113 -1 0.594604 256;
 #X obj 254 185 tgl 10 0 empty empty snap 12 4 0 10 -262144 -1 -1 1
@@ -193,8 +193,8 @@ octaves are pow(2 \, x);
 #X obj 369 271 1;
 #X obj 225 207 bng 15 250 50 0 empty empty empty 0 -6 0 10 -191407
 -1 -1;
-#X obj 163 142 hsl 128 15 1 2000 1 0 empty empty fade 2 7 0 10 -204800
--1 -1 0 1;
+#X obj 163 142 hsl 128 15 4 2000 0 0 empty empty fade 2 7 0 10 -204800
+-1 -1 5000 1;
 #X obj 396 271 0.6;
 #X obj 335 305 0.3;
 #X msg 415 487 vol \$1;
